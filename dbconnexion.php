@@ -1,25 +1,23 @@
 <?php
-session_start();
-header('Content-type: text/html; charset=utf-8'); 
-//////////////////////////////////////
-// connexion
-//////////////////////////////////////
+	session_start();
+	//////////////////////////////////////
+	// connexion
+	//////////////////////////////////////
+	header('Content-type: text/html; charset=utf-8'); 
+	/*** mysql hostname ***/
+	$hostname = 'localhost';
+	/*** mysql username ***/
+	$dbusername = 'root';
+	/*** mysql password ***/
+	$password = "";
+	/*** mysql database ***/
+	$databaseName="tutoriel_membres";
 
-/*** mysql hostname ***/
-$hostname = 'localhost';
-/*** mysql username ***/
-$username = 'vincentdesalle';
-/*** mysql password ***/
-$password = "aSsxHZE3wHQNC5sd";
-/*** mysql database ***/
-$databaseName="vincentdesalle";
-
-try {
-   $db = new PDO("mysql:host=$hostname;dbname=$databaseName", $username,$password);
-   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    }
-catch(PDOException $e)
-    {
-    echo $e->getMessage();
-    }
+	try {
+	   $db = new PDO("mysql:host=$hostname;dbname=$databaseName", $dbusername,$password);
+	   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+	}
+	catch(PDOException $e){
+	    echo $e->getMessage();
+	}
 ?>
